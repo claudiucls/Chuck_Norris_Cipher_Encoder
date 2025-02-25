@@ -14,9 +14,7 @@ public class InputFromUser {
             System.out.println("Please input operation (encode/decode/exit):");
             option = scanner.nextLine();
             switch (option) {
-                case "encode" -> {
-                    System.out.printf("Encoded string:%n%s%n", StringIntoUnary(getInputString(false)));
-                }
+                case "encode" -> System.out.printf("Encoded string:%n%s%n", StringIntoUnary(getInputString(false)));
                 case "decode" -> {
                     String encodeMessage = unaryToBinary(getInputString(true));
                     if (encodeMessage.isEmpty()){
@@ -160,11 +158,10 @@ public class InputFromUser {
             end = start + 7;
         }
 
-       // StringBuilder str = new StringBuilder();
 
-        for (int i = 0; i < list.size(); i++) {
-            //str.append(list.get(i));
-            int charCode = Integer.parseInt(list.get(i), 2);
+        for (String s : list) {
+
+            int charCode = Integer.parseInt(s, 2);
             char asciiToChar = (char) charCode;
             returnString.append(asciiToChar);
         }
